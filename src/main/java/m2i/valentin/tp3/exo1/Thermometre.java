@@ -15,6 +15,11 @@ public class Thermometre {
             if (currentTemperature < temperature[index - 1]) {
                 closestToZero = currentTemperature;
             }
+            if (Math.abs(currentTemperature) == Math.abs(closestToZero)) {
+                if (currentTemperature > 0) {
+                    closestToZero = currentTemperature;
+                }
+            }
         }
 
         return closestToZero;
