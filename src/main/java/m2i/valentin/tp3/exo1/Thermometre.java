@@ -12,7 +12,9 @@ public class Thermometre {
 
         throwExceptionIfTemperatureArrayIsTooLong(temperature);
 
-        checkIfTemperatureArrayIsEmpty(temperature);
+        if (checkIfTemperatureArrayIsEmpty(temperature) == 0) {
+            return 0;
+        }
 
         int closestToZero = temperature[0];
 
