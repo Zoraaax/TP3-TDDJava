@@ -10,7 +10,7 @@ public class ThermometreTest {
     public void empty_array_should_return_0() {
         Thermometre thermometre = new Thermometre();
 
-        int result = thermometre.checkTemperature(new int[]{0});
+        int result = thermometre.checkTemperature(new int[]{});
 
         assertEquals(0, result);
     }

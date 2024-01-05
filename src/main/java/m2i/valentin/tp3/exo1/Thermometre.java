@@ -4,9 +4,7 @@ public class Thermometre {
 
     public int checkTemperature(int[] temperature) {
 
-        int[] emptyArray = {};
-
-        if (temperature == emptyArray) {
+        if (temperature.length == 0) {
             return 0;
         }
 
