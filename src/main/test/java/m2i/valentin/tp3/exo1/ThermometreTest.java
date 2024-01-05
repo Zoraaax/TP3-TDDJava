@@ -19,8 +19,8 @@ public class ThermometreTest {
     public void array_with_one_element_should_return_this_element() {
         Thermometre thermometre = new Thermometre();
 
-        int result = thermometre.checkTemperature(new int[]{1});
+        int result = thermometre.checkTemperature(new int[]{4});
 
-        assertEquals(1, result);
+        assertEquals(4, result);
     }
 }
