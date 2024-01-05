@@ -2,6 +2,11 @@ package m2i.valentin.tp3.exo1;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -30,11 +35,23 @@ public class ThermometreTest {
         assertEquals(4, result);
     }
 
-    @Test
-    public void array_with_multiple_elements_should_return_closest_to_0() {
+    public static Stream<Arguments> array_with_two_elements_should_return_closest_to_0_provider() {
+        return Stream.of(
+                Arguments.of(new int[]{12, 22}, 12),
+                Arguments.of(new int[]{5, 3}, 3),
+                Arguments.of(new int[]{1, 1}, 1)
+        );
+    }
 
-        int result = thermometre.checkTemperature(new int[]{1, 8});
+    @ParameterizedTest
+    @MethodSource("array_with_two_elements_should_return_closest_to_0_provider")
+    public void array_with_multiple_elements_should_return_closest_to_0(
+            int[] givenArray,
+            int expectedValue
+    ) {
 
-        assertEquals(1, result);
+        int result = thermometre.checkTemperature(givenArray);
+
+        assertEquals(expectedValue, result);
     }
 }
