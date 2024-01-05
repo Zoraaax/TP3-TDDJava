@@ -54,4 +54,12 @@ public class ThermometreTest {
 
         assertEquals(expectedValue, result);
     }
+
+    @Test
+    public void equals_value_should_return_positive_element() {
+
+        int result = thermometre.checkTemperature(new int[]{-1, 1});
+
+        assertEquals(1, result);
+    }
 }
