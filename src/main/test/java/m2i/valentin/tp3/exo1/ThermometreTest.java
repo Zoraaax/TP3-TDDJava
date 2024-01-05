@@ -7,11 +7,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class ThermometreTest {
 
     @Test
-    public void empty_array_should_return_0() {
+    public void thermometre_should_return_0() {
         Thermometre thermometre = new Thermometre();
 
-        int[] result = thermometre.temperature(0);
+        int result = thermometre.checkTemperature(0);
 
-        assertEquals("0", result);
+        assertEquals(0, result);
     }
 }
