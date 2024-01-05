@@ -65,9 +65,12 @@ public class ThermometreTest {
 
     @ParameterizedTest
     @MethodSource("equals_value_should_return_positive_element_provider")
-    public void equals_value_should_return_positive_element() {
-        int result = thermometre.checkTemperature(new int[]{-1, 1});
+    public void equals_value_should_return_positive_element(
+            int[] givenArray,
+            int expectedValue
+    ) {
+        int result = thermometre.checkTemperature(givenArray);
 
-        assertEquals(1, result);
+        assertEquals(expectedValue, result);
     }
 }
