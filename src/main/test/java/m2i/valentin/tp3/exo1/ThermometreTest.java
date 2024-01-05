@@ -9,6 +9,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class ThermometreTest {
 
@@ -72,5 +73,17 @@ public class ThermometreTest {
         int result = thermometre.checkTemperature(givenArray);
 
         assertEquals(expectedValue, result);
+    }
+
+    @Test
+    public void should_throw_exception_when_array_is_superior_to_1000() {
+        int[] givenArray = new int[1001];
+        for (int index = 0; index < givenArray.length; index++) {
+            givenArray[index] = index;
+        }
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            thermometre.checkTemperature(givenArray);
+        });
     }
 }
