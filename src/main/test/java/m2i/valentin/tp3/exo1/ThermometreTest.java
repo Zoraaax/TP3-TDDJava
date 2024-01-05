@@ -33,8 +33,8 @@ public class ThermometreTest {
     @Test
     public void array_with_multiple_elements_should_return_closest_to_0() {
 
-        int result = thermometre.checkTemperature(new int[]{4, 8});
+        int result = thermometre.checkTemperature(new int[]{1, 8});
 
-        assertEquals(4, result);
+        assertEquals(1, result);
     }
 }
