@@ -2,15 +2,17 @@ package m2i.valentin.tp3.exo1;
 
 public class Thermometre {
 
+    /**
+     * Retourne la température la plus proche de 0.
+     * @param temperature
+     * @return int - température la plus proche de 0
+     * @throws IllegalArgumentException
+     */
     public int checkTemperature(int[] temperature) throws IllegalArgumentException {
 
-        if (temperature.length > 1000) {
-            throw new IllegalArgumentException("Le tableau des températures doit être inférieur à 1000 éléments.");
-        }
+        throwExceptionIfTemperatureArrayIsTooLong(temperature);
 
-        if (temperature.length == 0) {
-            return 0;
-        }
+        checkIfTemperatureArrayIsEmpty(temperature);
 
         int closestToZero = temperature[0];
 
@@ -27,5 +29,27 @@ public class Thermometre {
         }
 
         return closestToZero;
+    }
+
+    /**
+     * Retourne 0 si le tableau des températures est vide.
+     * @param temperature
+     * @return int - 1 si le tableau des températures n'est pas vide
+     */
+    private int checkIfTemperatureArrayIsEmpty(int[] temperature) {
+        if (temperature.length == 0) {
+            return 0;
+        }
+        return 1;
+    }
+
+    /**
+     * Lève une exception si le tableau des températures est trop grand.
+     * @param temperature
+     */
+    private void throwExceptionIfTemperatureArrayIsTooLong(int[] temperature) {
+        if (temperature.length > 1000) {
+            throw new IllegalArgumentException("Le tableau des températures doit être inférieur à 1000 éléments.");
+        }
     }
 }

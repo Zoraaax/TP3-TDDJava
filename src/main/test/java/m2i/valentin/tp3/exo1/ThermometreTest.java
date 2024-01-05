@@ -75,12 +75,20 @@ public class ThermometreTest {
         assertEquals(expectedValue, result);
     }
 
-    @Test
-    public void should_throw_exception_when_array_is_superior_to_1000() {
-        int[] givenArray = new int[1001];
-        for (int index = 0; index < givenArray.length; index++) {
-            givenArray[index] = index;
-        }
+    public static Stream<Arguments> should_throw_exception_when_array_is_superior_to_1000_provider() {
+        return Stream.of(
+                Arguments.of(new int[1001]),
+                Arguments.of(new int[1002]),
+                Arguments.of(new int[1003]),
+                Arguments.of(new int[1004])
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("should_throw_exception_when_array_is_superior_to_1000_provider")
+    public void should_throw_exception_when_array_is_superior_to_1000(
+            int[] givenArray
+    ) {
 
         assertThrows(IllegalArgumentException.class, () -> {
             thermometre.checkTemperature(givenArray);
